@@ -1,0 +1,16 @@
+<p>
+  <strong>Date:</strong>
+  <%= @training.date %>
+</p>
+ 
+<p>
+  <strong>Name:</strong>
+  <%= @training.name %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @training.weight %>
+</p>
+ 
+<%= link_to 'Edit', edit_training_path(@training) %> | <%= link_to 'Назад', trainings_path %>

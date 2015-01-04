@@ -1,0 +1,26 @@
+<h1>Список упражнений</h1>
+
+<%= link_to 'Новая тренировка', new_training_path %>
+
+<br />
+
+<table>
+  <tr>
+    <th>Дата</th>
+    <th>Название</th>
+    <th>Вес</th>
+  </tr>
+ 
+  <% @trainings.each do |training| %>
+    <tr>
+      <td><%= training.date %></td>
+      <td><%= training.name %></td>
+      <td><%= training.weight %></td>
+      <td><%= link_to 'Show', training_path(training) %></td>
+      <td><%= link_to 'Edit', edit_training_path(training) %></td>
+      <td><%= link_to 'Destroy', training_path(training),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
