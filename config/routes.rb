@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-    root 'welcome#index'
+  root 'welcome#index'
+
+  get "/log-in" => "sessions#new"
+  post "/log-in" => "sessions#create"
+  get "/log-out" => "sessions#destroy", as: :log_out
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -29,6 +33,7 @@ Rails.application.routes.draw do
   #   end
 
   resources :trainings
+  resources :users
 
   # Example resource route with sub-resources:
   #   resources :products do
