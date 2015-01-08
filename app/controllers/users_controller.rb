@@ -9,7 +9,8 @@ class UsersController < ApplicationController
       redirect_to new_training_path
     else
       flash[:alert] = "There was a problem creating your account. Please try again."
-      redirect_to :back
+      #redirect_to :back
+      render 'users/new'
     end
   end
 
