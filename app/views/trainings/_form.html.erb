@@ -15,22 +15,22 @@
   	<% end %>
 
   <div class="form-group">
-    <%= f.label :date, :class => "control-label" %><br>
+    <%= f.label :date, :value => "Дата" ,:class => "control-label" %><br>
     <%= f.date_field :date, :class => "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :name, :class => "control-label" %><br>
-    <%= f.text_field :name, :class => "form-control" %>
+    <%= f.label :name, :value => "Название", :class => "control-label" %><br>
+    <%= f.text_field :name, :class => "form-control", :placeholder => "Штанга :: Становая" %>
   </div>
   <div class="form-group">
-    <%= f.label :weight, :class => "control-label" %><br>
-    <%= f.text_field :weight, :class => "form-control" %>
+    <%= f.label :weight, :value => "Достижение (кг/км/раз)", :class => "control-label" %><br>
+    <%= f.text_field :weight, :class => "form-control", :placeholder => "40" %>
   </div>
   <div class="form-group">
     <%= f.hidden_field :user_id, :value => @user_id %>
   </div>
   <div class="form-group">
-    <%= f.submit nil, :class => "btn btn-default btn-lg", :value => "Сохранить" %>
+    <%= f.submit nil, :class => "btn btn-primary btn-lg btn-block", :value => "Сохранить" %>
   </div>
 
 <% end %>

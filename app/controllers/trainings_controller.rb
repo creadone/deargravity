@@ -2,6 +2,7 @@ class TrainingsController < ApplicationController
 	def index
     unless current_user.nil?
       @trainings = Training.where(:user_id => current_user.id)
+      @training_list = Training.where(:user_id => current_user.id).group("name")
     else
       redirect_to '/log-in/'
     end
