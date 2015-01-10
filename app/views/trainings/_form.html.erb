@@ -14,20 +14,20 @@
     	</div>
   	<% end %>
 
-  <p>
-    <%= f.label :date %><br>
-    <%= f.date_field :date %>
-  </p>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :weight %><br>
-    <%= f.text_field :weight %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="form-group">
+    <%= f.label :date, :class => "control-label" %><br>
+    <%= f.date_field :date, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name, :class => "control-label" %><br>
+    <%= f.text_field :name, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :weight, :class => "control-label" %><br>
+    <%= f.text_field :weight, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit nil, :class => "btn btn-default btn-lg", :value => "Сохранить" %>
+  </div>
+
 <% end %>

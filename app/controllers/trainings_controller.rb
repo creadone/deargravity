@@ -1,6 +1,10 @@
 class TrainingsController < ApplicationController
 	def index
+    unless current_user.nil?
     	@trainings = Training.all
+    else
+      redirect_to '/log-in/'
+    end
 	end
 
 	def show
@@ -31,7 +35,7 @@ class TrainingsController < ApplicationController
   		else
     		render 'edit'
   		end
-  	end
+  end
  
   def destroy
     @training = Training.find(params[:id])
