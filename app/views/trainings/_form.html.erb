@@ -27,6 +27,9 @@
     <%= f.text_field :weight, :class => "form-control" %>
   </div>
   <div class="form-group">
+    <%= f.hidden_field :user_id, :value => @user_id %>
+  </div>
+  <div class="form-group">
     <%= f.submit nil, :class => "btn btn-default btn-lg", :value => "Сохранить" %>
   </div>
 

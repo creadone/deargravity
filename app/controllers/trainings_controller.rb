@@ -1,7 +1,7 @@
 class TrainingsController < ApplicationController
 	def index
     unless current_user.nil?
-    	@trainings = Training.all
+      @trainings = Training.where(:user_id => current_user.id)
     else
       redirect_to '/log-in/'
     end
@@ -12,7 +12,12 @@ class TrainingsController < ApplicationController
 	end
 
 	def new
-		@training = Training.new
+    unless current_user.nil?
+      @training = Training.new
+      @user_id = current_user.id
+    else
+      redirect_to '/log-in/'
+    end
 	end
 
 	def edit
@@ -20,6 +25,7 @@ class TrainingsController < ApplicationController
 	end
 
 	def create
+      training_params.inspect
   		@training = Training.new(training_params)
   		if @training.save
   			redirect_to @training
@@ -40,14 +46,13 @@ class TrainingsController < ApplicationController
   def destroy
     @training = Training.find(params[:id])
     @training.destroy
- 
-    redirect_to trainings_path
+    redirect_to 'trainings'
   end
 
 	private
 
   		def training_params
-    		params.require(:training).permit(:name, :date, :weight)
+    		params.require(:training).permit(:name, :date, :weight, :user_id)
   		end
 
 end
