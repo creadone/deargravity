@@ -1,4 +1,4 @@
-<h3>Тренировки</h3>
+<h3>Упражнения</h3>
 
 <%= link_to 'Новое упражнение', new_training_path %>
 
@@ -25,4 +25,8 @@
   <% end %>
 </table>
 
-<%= @training_list.inspect %>
+<h4>Уникальные упражнения</h4>
+
+<% @training_list.each do |l| %>
+  <p><%= l.name %></p>
+<% end %>
