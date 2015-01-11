@@ -1,46 +1,16 @@
-<h3>Упражнения</h3>
+<!-- <h3>Упражнения</h3> -->
 
-<%= link_to 'Новое упражнение', new_training_path %>
+<%= link_to 'Записать результат', new_training_path, :class => "btn btn-primary btn-lg btn-block" %>
 
 <br />
-
-<table>
-  <tr>
-    <th>Дата</th>
-    <th>Название</th>
-    <th>Вес</th>
-  </tr>
- 
-  <% @trainings.each do |training| %>
-    <tr>
-      <td><%= training.date %></td>
-      <td><%= training.name %></td>
-      <td><%= training.weight %></td>
-      <td><a href="<%= edit_training_path(training) %>"><%= image_tag 'edit.png' %></a></td>
-
-      <td><%= link_to 'Destroy', training_path(training),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
-
-<h4>Уникальные упражнения</h4>
-
-<% @uniq_trainings.each do |l| %>
-  <p><%= l.name %></p>
-<% end %>
-
-<h4>По дате</h4>
-
-
 
 <% trainings_by_date = @trainings.group_by(&:date) %>
 
 <% trainings_by_date.each do |t| %>
   <h4><%= t[0].strftime("%b %e, %Y") %></h4>
+  <div class="list-group">
   <% t[1].each do |z| %> 
-    <p><%= z.name %> | <%= z.weight %></p>
+    <a class="list-group-item"><%= z.name %> <span class="badge"><%= z.weight %></span></a>
   <% end %>
+  </div>
 <%end %>
-
