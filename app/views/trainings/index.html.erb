@@ -27,6 +27,20 @@
 
 <h4>Уникальные упражнения</h4>
 
-<% @training_list.each do |l| %>
+<% @uniq_trainings.each do |l| %>
   <p><%= l.name %></p>
 <% end %>
+
+<h4>По дате</h4>
+
+
+
+<% trainings_by_date = @trainings.group_by(&:date) %>
+
+<% trainings_by_date.each do |t| %>
+  <h4><%= t[0].strftime("%b %e, %Y") %></h4>
+  <% t[1].each do |z| %> 
+    <p><%= z.name %> | <%= z.weight %></p>
+  <% end %>
+<%end %>
+
