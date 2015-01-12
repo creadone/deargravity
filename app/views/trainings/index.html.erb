@@ -10,7 +10,7 @@
   <h4><%= Russian::strftime(t[0], "%e %b, %Y").split(',').join(',<small>').html_safe %></small></h4>
   <div class="list-group">
   <% t[1].each do |z| %> 
-    <a class="list-group-item"><%= z.name %> <span class="badge"><%= z.weight %></span></a>
+    <a class="list-group-item"><%= z.name %> <span class="pull-right"><%= z.weight %></span></a>
   <% end %>
   </div>
 <%end %>

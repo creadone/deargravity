@@ -3,7 +3,7 @@ class TrainingsController < ApplicationController
     unless current_user.nil?
       #@trainings = Training.where(:user_id => current_user.id)
       #@uniq_trainings = Training.where(:user_id => current_user.id).group("name")
-      @trainings = Training.where(:user_id => current_user.id).order('date DESC')
+      @trainings = Training.where(:user_id => current_user.id).order('date DESC').limit(7)
     else
       redirect_to '/log-in/'
     end
@@ -17,21 +17,21 @@ class TrainingsController < ApplicationController
     unless current_user.nil?
       @training = Training.new
       @user_id = current_user.id
-      @uniq_trainings = Training.where(:user_id => current_user.id).group("name")
     else
       redirect_to '/log-in/'
     end
 	end
 
 	def edit
-  		@training = Training.find(params[:id])
+  		#@training = Training.find(params[:id])
+      render nothing: true
 	end
 
 	def create
       training_params.inspect
   		@training = Training.new(training_params)
   		if @training.save
-  			redirect_to @training
+  			redirect_to '/trainings/'
   		else
   			render 'new'
   		end

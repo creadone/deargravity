@@ -1,9 +1,3 @@
-<%= javascript_include_tag '//www.google.com/jsapi', 'chartkick' %>
 
-<#%= pie_chart @trainings.group(:date).count %>
 
-<#%= bar_chart @trainings.group(:name).sum(:weight) %>
-
-<%= line_chart @trainings.map{|t|
-    {name: t.name, data: t.weight.group(:date).count}
-} %>
+<%= @trainings.to_json %>
