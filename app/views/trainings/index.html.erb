@@ -4,7 +4,7 @@
 
 <br />
 
-<% trainings_by_date = @trainings_g.group_by(&:date) %>
+<% trainings_by_date = @trainings.group_by(&:date) %>
 
 <% trainings_by_date.each do |t| %>
   <h4><%= Russian::strftime(t[0], "%e %b, %Y").split(',').join(',<small>').html_safe %></small></h4>
@@ -14,3 +14,5 @@
   <% end %>
   </div>
 <%end %>
+
+<%= link_to 'Выйти', '/log-out/', :class => "btn btn-default btn-lg btn-block" %>

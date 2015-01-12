@@ -1,9 +1,9 @@
 class TrainingsController < ApplicationController
 	def index
     unless current_user.nil?
-      @trainings = Training.where(:user_id => current_user.id)
+      #@trainings = Training.where(:user_id => current_user.id)
       #@uniq_trainings = Training.where(:user_id => current_user.id).group("name")
-      @trainings_g = Training.where(:user_id => current_user.id).order('date DESC')
+      @trainings = Training.where(:user_id => current_user.id).order('date DESC')
     else
       redirect_to '/log-in/'
     end

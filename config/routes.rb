@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post "/log-in" => "sessions#create"
   get "/log-out" => "sessions#destroy", as: :log_out
 
+  get "/stats" => "stats#index"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

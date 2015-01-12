@@ -29,6 +29,11 @@ gem 'bcrypt', '~> 3.1.7'
 # support russian language
 gem 'russian'
 
+# For user stats
+gem 'dateslices'
+gem 'chartkick'
+
+
  #gem 'select2-rails'
  #gem 'autoselect2'
  #gem 'autoselect2tag'
