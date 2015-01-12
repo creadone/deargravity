@@ -4,7 +4,7 @@
 
 <br />
 
-<% trainings_by_date = @trainings.group_by(&:date) %>
+<% trainings_by_date = @trainings_g.group_by(&:date) %>
 
 <% trainings_by_date.each do |t| %>
   <h4><%= t[0].strftime("%b %e, %Y") %></h4>
